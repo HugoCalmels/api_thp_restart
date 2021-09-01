@@ -16,5 +16,7 @@ Rails.application.routes.draw do
       sessions: 'sessions',
       registrations: 'registrations'
     }
-    resources :articles
+    resources :articles do
+      resources :comments
+    end
 end
