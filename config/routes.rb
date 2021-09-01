@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  default_url_options :host => "http://localhost:3000"
   namespace :api, defaults: { format: :json } do
     resources :users, only: %w[show]
   end
@@ -16,4 +16,5 @@ Rails.application.routes.draw do
       sessions: 'sessions',
       registrations: 'registrations'
     }
+    resources :articles
 end

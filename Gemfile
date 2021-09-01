@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
+gem 'dotenv-rails'
+gem 'faker'
+gem 'table_print', '~> 1.5', '>= 1.5.7'
 gem 'rack-cors'
 gem 'devise-jwt', '~> 0.7.0'
 gem 'devise'
