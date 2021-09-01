@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all.where(status: false)
+    @articles = Article.all
 
     render json: @articles
   end
