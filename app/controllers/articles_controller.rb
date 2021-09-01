@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:show, :update, :destroy]
   before_action :creator?, only: [:update, :destroy]
 
   # GET /articles
