@@ -1,22 +1,20 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [ :update, :destroy]
   before_action :creator?, only: [:update, :destroy]
 
   # GET /articles
   def index
-    @comments = Comment.all.where(status: false)
+    @comments = Comment.all
 
     render json: @comments
   end
 
   # GET /articles/1
   def show
-    if @comment.status == false || @comment.user == current_user
+    @comment.user == current_user
       render json: @comment
-    else
-      render json: @comment.errors ,status: :forbidden
-    end
+    
   end
 
   # POST /articles

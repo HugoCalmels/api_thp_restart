@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, only: [ :update, :destroy]
   before_action :creator?, only: [:update, :destroy]
 
   # GET /articles
@@ -12,11 +12,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   def show
-    if @article.status == false || @article.user == current_user
+      @article.user == current_user
       render json: @article
-    else
-      render json: @article.errors ,status: :forbidden
-    end
+
   end
 
   # POST /articles
