@@ -9,7 +9,8 @@ class Api::UsersController < Api::BaseController
   private
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    render json: @user
   end
 
 end
